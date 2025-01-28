@@ -8,3 +8,4 @@ cupy
 joblib
 fastapi 
 uvicorn
+python-multipart
