@@ -1,13 +1,14 @@
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import (
-    Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization
-)
+    Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization)
+from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 import numpy as np
 import pickle
 import preprocessing
+
 # CNN Architecture for Feature Extraction
 def build_cnn():
     """
@@ -42,7 +43,7 @@ def build_cnn():
     # Output Layer for CNN only (Softmax classifier)
     output_layer = Dense(3, activation='softmax')(x)
     
-    # Create the model
+    # model
     cnn_model = Model(inputs=input_layer, outputs=output_layer)
     
     # Compile the model for training
@@ -114,7 +115,6 @@ def train_cnn_svm(X_train, X_val, y_train, y_val, X_test, y_test, epochs=30, bat
         pickle.dump(svm_classifier, f)
     print("Models saved: cnn_model.h5 and svm_classifier.pkl")
 
-# Example Usage
 if __name__ == "__main__":
     # Load preprocessed data
     train_directory = "/mnt/c/Users/athul/Desktop/Handwriting/Data/train"
@@ -122,7 +122,6 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = preprocessing.load_and_preprocess_train_test_data(train_directory, test_directory)
     
     # Split training data for validation
-    from sklearn.model_selection import train_test_split
     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
     
     # Train the hybrid model
