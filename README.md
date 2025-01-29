@@ -1,4 +1,4 @@
-```markdown
+
 # Dyslexia Detection System
 
 This repository implements a system to detect dyslexia through handwriting analysis using a combination of a Convolutional Neural Network (CNN) and a Support Vector Machine (SVM). The project uses FastAPI to expose the functionality via an API.
@@ -213,5 +213,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - **FastAPI**: For easy and fast API creation.
 
 For any questions or support, feel free to raise an issue in the repository!
-```
-
