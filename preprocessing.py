@@ -74,9 +74,8 @@ def load_and_preprocess_train_test_data(train_dir, test_dir):
 
     return X_train, X_test, y_train, y_test
 
-# Example usage
-train_directory = "/mnt/c/Users/athul/Desktop/Handwriting/Data/train"  # Replace with the path to your training dataset
-test_directory = "/mnt/c/Users/athul/Desktop/Handwriting/Data/test"    # Replace with the path to your testing dataset
+train_directory = "/mnt/c/Users/athul/Desktop/Handwriting/Data/train"  
+test_directory = "/mnt/c/Users/athul/Desktop/Handwriting/Data/test"    
 
 X_train, X_test, y_train, y_test = load_and_preprocess_train_test_data(train_directory, test_directory)
 
