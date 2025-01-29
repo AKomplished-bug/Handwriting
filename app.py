@@ -22,7 +22,7 @@ def preprocess_image(image):
     """
     image = cv2.resize(image, (32, 32))
     image = cv2.bitwise_not(image)
-    image = image / 255.0  # Normalize to [0, 1]
+    image = image / 255.0  
     return image
 
 def extract_features(model, X):
@@ -106,7 +106,7 @@ def segment_and_classify_page(cnn_model, svm_model, page_image_path):
     corrected_ratio = corrected_count / total_letters
 
     # Define threshold for dyslexia classification
-    threshold = 0.3  # Example threshold
+    threshold = 0.3 
 
     if reversal_ratio + corrected_ratio > threshold:
         return {"classification": "Dyslexic", "reversal_ratio": reversal_ratio, "corrected_ratio": corrected_ratio}
