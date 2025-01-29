@@ -91,14 +91,13 @@ def segment_and_classify_page(cnn_model, svm_model, page_image_path):
     corrected_ratio = corrected_count / total_letters
 
     # Define threshold for dyslexia classification
-    threshold = 0.3  # Example threshold
+    threshold = 0.3  
 
     if reversal_ratio + corrected_ratio > threshold:
         return "Dyslexic"
     else:
         return "Non-Dyslexic"
 
-# Example usage
 page_image_path = '42.jpg'
 result = segment_and_classify_page(cnn_model, svm_model, page_image_path)
 print(result)
